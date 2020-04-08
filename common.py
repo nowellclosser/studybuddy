@@ -1,10 +1,17 @@
 import os
 
+import db
+
 TRELLO_TOKEN = os.environ['TRELLO_TOKEN']
 TRELLO_API_KEY = '05f785ea84a94d962177813ad467dba0'
 TRELLO_AUTH_STRING = f'key={TRELLO_API_KEY}&token={TRELLO_TOKEN}'
 STUDY_BOARD_ID = '5c9b032e34978643340a72aa'
 TO_DO_LIST_ID = '5c9b032e6e6f3c185318da3c'
+
+SECTION_DB = 'studybuddy.db'
+
+LA_STRANG = 'Linear Algebra - Strang'
+AA_PINTER = 'A Book of Abstract Algebra - Pinter'
 
 SECTIONS = {
     'Linear Algebra - Strang': {
@@ -29,14 +36,22 @@ SECTIONS = {
     }
 }
 
+def book_division_name(book, chapter, section):
+    if section:
+        return f'{book}, Section {chapter}-{section}'
+    return f'{book}, Chapter {chapter}'
+
 
 def list_sections():
-    result = []
-    for book, divisions in SECTIONS.items():
-        for chapter, sections in divisions.items():
-            if sections:
-                for section in sections:
-                    result.append(f'{book}: Section {chapter}-{section}')
-            else:
-                result.append(f'{book}: Chapter {chapter}')
-    return result
+    connection = db.get_connection()
+
+    fetch = """
+    SELECT book, chapter, section
+    FROM book_sections
+    WHERE notes_completed = 1
+    """
+
+    return [
+        book_division_name(row['book'], row['chapter'], row['section'])
+        for row in connection.execute(fetch)
+    ]
