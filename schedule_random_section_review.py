@@ -1,5 +1,4 @@
 import random
-from datetime import datetime, timezone
 
 import arrow
 import requests
@@ -15,7 +14,7 @@ def main():
         'due': arrow.now().replace(hour=23, minute=59)
     }
 
-    result = requests.post(url, params=query)
+    requests.post(url, params=query)
 
 
 if __name__ == '__main__':

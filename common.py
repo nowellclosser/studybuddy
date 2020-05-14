@@ -33,7 +33,7 @@ def get_book_section(book_id, chapter, section, fields=None):
         AND (section IS NULL OR section = :section)
     """
 
-    return connnection.execute(
+    return connection.execute(
         fetch,
         {'book_id': book_id, 'chapter': chapter, 'section': section}
     ).fetchone()

@@ -81,7 +81,7 @@ def schedule_range(
                 common.update_section_card_id(book_id, section['chapter'], section['section'], common.EXERCISES, None)
             card_id = section[f'{common.EXERCISES}_card_id']
 
-            lag_days = notes_lag_days
+            lag_days = exercises_lag_days
             if section[f'{common.READING}_completed']:
                 lag_days = adjusted_exercises_lag_days
 
