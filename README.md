@@ -7,3 +7,5 @@ TODO/NOTES:
 - TRELLO TOKEN goes in /etc/environment
 - logrotate on server
 - set last reviewed date for review cards
+- how to view db remotely
+- set up web app remotely
