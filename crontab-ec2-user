@@ -5,6 +5,5 @@
 # | | | | +- Day Of Week (0-6) (Sunday = 0)   | @daily -> 0 0 * * *; @weekly -> 0 0 * * 0; @monthly ->0 0 1 * *;
 # | | | | |                                   | @yearly -> 0 0 1 1 *;
 # * * * * * COMMAND
-# New version
 
 * * * * * source /home/ec2-user/.bash_profile; cd /home/ec2-user/studybuddy; source ve/bin/activate; python -m bin.schedule_random_section_review >> /var/log/schedule_random_section_review.log 2>&1
