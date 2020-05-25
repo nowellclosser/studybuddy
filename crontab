@@ -7,4 +7,4 @@
 # * * * * * COMMAND
 # New version
 
-* * * * * cd /home/ec2-user/studybuddy; source ve/bin/activate; python -m bin.schedule_random_section_review >> /var/log/schedule_random_section_review.log 2>&1
+* * * * * source /home/ec2-user/.bash_profile; cd /home/ec2-user/studybuddy; source ve/bin/activate; python -m bin.schedule_random_section_review >> /var/log/schedule_random_section_review.log 2>&1
