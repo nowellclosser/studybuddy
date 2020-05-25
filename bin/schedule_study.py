@@ -6,6 +6,17 @@ import requests
 
 import common
 
+def add_webhook(card_type, card_id):
+    url = f"https://api.trello.com/1/webhooks/?{common.TRELLO_AUTH_STRING}"
+
+    query = {
+       'callbackURL': f'http://8a1e38d3.ngrok.io/process_card_update/{card_type}/{card_id}',
+       'idModel': card_id
+    }
+    response = requests.post(url, params=query)
+    if response.status_code != 200:
+        raise Exception(response.text)
+
 
 def schedule_range(
         book_id,
@@ -71,6 +82,8 @@ def schedule_range(
 
                 common.update_section_card_id(book_id, section['chapter'], section['section'], common.READING, card['id'])
 
+            add_webhook(common.READING, card['id'])
+
         # Upsert exercises task
         if not section[f'{common.EXERCISES}_completed']:
             should_increment_reading_task_count = True
@@ -98,6 +111,8 @@ def schedule_range(
 
                 common.update_section_card_id(book_id, section['chapter'], section['section'], common.EXERCISES, card['id'])
 
+            add_webhook(common.EXERCISES, card['id'])
+
         # Upsert notes task
         if not section[f'{common.NOTES}_completed']:
             should_increment_reading_task_count = True
@@ -123,6 +138,7 @@ def schedule_range(
                 card = requests.post(post_url, params=query).json()
 
                 common.update_section_card_id(book_id, section['chapter'], section['section'], common.NOTES, card['id'])
+            add_webhook(common.NOTES, card['id'])
 
         if should_increment_reading_task_count:
             reading_task_count += 1

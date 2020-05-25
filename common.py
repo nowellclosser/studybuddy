@@ -7,6 +7,7 @@ TRELLO_API_KEY = '05f785ea84a94d962177813ad467dba0'
 TRELLO_AUTH_STRING = f'key={TRELLO_API_KEY}&token={TRELLO_TOKEN}'
 STUDY_BOARD_ID = '5c9b032e34978643340a72aa'
 TO_DO_LIST_ID = '5c9b032e6e6f3c185318da3c'
+DONE_LIST_ID = '5c9b032ef2f2f717ab525e9e'
 
 STUDYBUDDY_DB = 'studybuddy.db'
 
@@ -101,6 +102,22 @@ def update_section_card_id(book_id, chapter, section, card_type, id_value):
         'chapter': chapter,
         'section': section,
         'id': id_value
+    }
+    connection.execute(update, params)
+    connection.commit()
+
+
+def mark_task_completed(task_type, card_id):
+    connection = db.get_connection()
+
+    update = f"""
+    UPDATE book_sections
+    SET {task_type}_completed = TRUE
+    WHERE {task_type}_card_id = :card_id
+    """
+
+    params = {
+        'card_id': card_id
     }
     connection.execute(update, params)
     connection.commit()
