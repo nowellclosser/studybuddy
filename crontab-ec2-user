@@ -6,4 +6,4 @@
 # | | | | |                                   | @yearly -> 0 0 1 1 *;
 # * * * * * COMMAND
 
-* * * * * cd /home/ec2-user/studybuddy; source ve/bin/activate; python -m bin.schedule_random_section_review >> /var/log/schedule_random_section_review.log 2>&1
+0 12 * * 0-5 cd /home/ec2-user/studybuddy; source ve/bin/activate; python -m bin.schedule_random_section_review >> /var/log/schedule_random_section_review.log 2>&1
