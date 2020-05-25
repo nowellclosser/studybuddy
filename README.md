@@ -6,3 +6,4 @@ TODO/NOTES:
 - Formalize/document host setup: python3.8 (+ special sqlite stuff), ssh key, git, TRELLO_TOKEN
 - TRELLO TOKEN goes in /etc/environment
 - logrotate on server
+- set last reviewed date for review cards
