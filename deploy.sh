@@ -1,7 +1,11 @@
+set -e
+
 git push origin master
 
-ssh ec2-user@ip-172-26-7-135
+ssh -T ec2-user@52.39.88.38 << EOF
 cd studybuddy
 git pull origin master
-crontab -u ec2-user crontab
+ls
+mv crontab /var/spool/cron/ec2-user
 logout
+EOF
