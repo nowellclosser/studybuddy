@@ -25,8 +25,9 @@ def process_card_update(card_type, card_id):
 if __name__ == "__main__":
     bottle.run(host='localhost', port=8000)
 else:
+    app = bottle.default_app()
     gunicorn_logger = logging.getLogger('gunicorn.error')
     app.logger.handlers = gunicorn_logger.handlers
     app.logger.setLevel(gunicorn_logger.level)
 
-app = bottle.default_app()
+
