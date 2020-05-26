@@ -19,7 +19,7 @@ echo "***************** Replacing crontab"
 crontab crontab-ec2-user
 
 echo "Reloading gunicorn"
-kill -HUP `cat studybuddy.pid`
+kill -HUP `cat /var/run/studybuddy/studybuddy.pid`
 
 echo "***************** Deploy complete"
 EOF

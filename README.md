@@ -8,4 +8,5 @@ TODO/NOTES:
 - logrotate on server
 - set last reviewed date for review cards
 - how to view db remotely
-- set up web app remotely
+- gunicorn webapp.app:app -b :5002 -w 4 -p /var/run/studybuddy/studybuddy.pid
+-- daemonize gunicorn

@@ -4,7 +4,7 @@ import common
 
 @bottle.get('/')
 def home():
-    return '<b>Studybuddy api running</b>!'
+    return '<b>Studybuddy api is running</b>!'
 
 # For Trello to validate our callback URL
 @bottle.get('/process_card_update/<card_type>/<card_id>')
