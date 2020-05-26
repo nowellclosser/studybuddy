@@ -108,12 +108,11 @@ def update_section_card_id(book_id, chapter, section, card_type, id_value):
 
 
 def mark_task_completed(task_type, card_id):
-    breakpoint()
     connection = db.get_connection()
 
     update = f"""
     UPDATE book_sections
-    SET {task_type}_completed = TRUE
+    SET {task_type}_completed = 1
     WHERE {task_type}_card_id = :card_id
     """
 
