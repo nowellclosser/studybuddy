@@ -1,3 +1,5 @@
+import logging
+
 import bottle
 
 import common
