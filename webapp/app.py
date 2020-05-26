@@ -20,4 +20,7 @@ def process_card_update(card_type, card_id):
             action_data["data"]["listAfter"]["id"] == common.DONE_LIST_ID):
         common.mark_task_completed(card_type, card_id)
 
-bottle.run(host='localhost', port=8000)
+if __name__ == "__main__":
+    bottle.run(host='localhost', port=8000)
+
+app = bottle.default_app()
