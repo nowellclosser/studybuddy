@@ -12,3 +12,4 @@ TODO/NOTES:
 -- daemonize gunicorn
 -- make webapp deploy optional
 -- check in and deploy nginx config
+-- better way to run schedule study without sshing
