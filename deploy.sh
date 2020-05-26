@@ -1,5 +1,6 @@
 set -e
 
+echo "***************** Pushing to remote master"
 git push origin master
 
 # I irretrievably messed up the cron permissions,
@@ -7,7 +8,9 @@ git push origin master
 ssh -T ec2-user@52.39.88.38 << EOF
 set -e
 cd studybuddy
+echo "***************** Pushing master onto server"
 git pull origin master
-cat crontab-ec2-user > /var/spool/cron/ec2-user
-logout
+echo "***************** Replacing crontab"
+crontab crontab-ec2-user
+echo "***************** Deploy complete"
 EOF
