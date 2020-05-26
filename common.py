@@ -108,6 +108,7 @@ def update_section_card_id(book_id, chapter, section, card_type, id_value):
 
 
 def mark_task_completed(task_type, card_id):
+    breakpoint()
     connection = db.get_connection()
 
     update = f"""
