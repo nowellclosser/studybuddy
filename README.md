@@ -10,3 +10,5 @@ TODO/NOTES:
 - how to view db remotely
 - gunicorn webapp.app:app -b :5002 -w 4 -p /var/run/studybuddy/studybuddy.pid
 -- daemonize gunicorn
+-- make webapp deploy optional
+-- check in and deploy nginx config

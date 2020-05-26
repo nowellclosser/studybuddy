@@ -10,7 +10,7 @@ def add_webhook(card_type, card_id):
     url = f"https://api.trello.com/1/webhooks/?{common.TRELLO_AUTH_STRING}"
 
     query = {
-       'callbackURL': f'http://8a1e38d3.ngrok.io/process_card_update/{card_type}/{card_id}',
+       'callbackURL': f'http://pizzanet.sexy/process_card_update/{card_type}/{card_id}',
        'idModel': card_id
     }
     response = requests.post(url, params=query)
