@@ -8,8 +8,9 @@ TODO/NOTES:
 - logrotate on server
 - set last reviewed date for review cards
 - how to view db remotely
-- gunicorn webapp.app:app -b :5002 -w 4 -p /var/run/studybuddy/studybuddy.pid
--- daemonize gunicorn
--- make webapp deploy optional
--- check in and deploy nginx config
--- better way to run schedule study without sshing
+- daemonize gunicorn
+- make webapp deploy optional
+- check in and deploy nginx config
+- better way to run schedule study without sshing
+
+- gunicorn webapp.app:app -b :5002 -w 4 -p /var/run/studybuddy/studybuddy.pid is running in a screen session called studybuddy, where logs can be seen

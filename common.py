@@ -13,9 +13,11 @@ STUDYBUDDY_DB = 'studybuddy.db'
 
 STRANG_LA = 'strang_la'
 PINTER_AA = 'pinter_aa'
+ABBOTT_UA = 'abbott_ua'
 BOOKS = {
     STRANG_LA: 'Linear Algebra - Strang',
-    PINTER_AA: 'A Book of Abstract Algebra - Pinter'
+    PINTER_AA: 'A Book of Abstract Algebra - Pinter',
+    ABBOTT_UA: 'Understanding Analysis - Abbott',
 }
 
 READING = 'reading'
@@ -43,6 +45,7 @@ def get_book_section(book_id, chapter, section, fields=None):
 def get_section_range(book_id, start_chapter, start_section, end_chapter, end_section):
     connection = db.get_connection()
 
+    # Is there a bug for scheduling just one chapter?
     fetch = """
     SELECT * FROM book_sections
     WHERE book_id = :book_id
