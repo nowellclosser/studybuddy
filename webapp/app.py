@@ -28,6 +28,10 @@ def jsv3(filepath):
 def cssv3(filepath):
     return bottle.static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/css-v3")
 
+@bottle.route(r"/static/css-v3/<filepath:re:.*\.css>")
+def cssv3(filepath):
+    return bottle.static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/css-dashboard")
+
 @bottle.route(r"/static/js/<filepath:re:.*\.js>")
 def js(filepath):
     return bottle.static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/js")
