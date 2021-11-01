@@ -22,19 +22,19 @@ def fake_page():
 
 @bottle.route(r"/static/js-v3/<filepath:re:.*\.js>")
 def jsv3(filepath):
-    return static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/js-v3")
+    return bottle.static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/js-v3")
 
 @bottle.route(r"/static/css-v3/<filepath:re:.*\.css>")
 def cssv3(filepath):
-    return static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/css-v3")
+    return bottle.static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/css-v3")
 
 @bottle.route(r"/static/js/<filepath:re:.*\.js>")
 def js(filepath):
-    return static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/js")
+    return bottle.static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/js")
 
 @bottle.route(r"/static/css/<filepath:re:.*\.css>")
 def css(filepath):
-    return static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/css")
+    return bottle.static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/css")
 
 # For Trello to validate our callback URL
 @bottle.get('/process_card_update/<card_type>/<card_id>')
