@@ -20,19 +20,19 @@ def fake_page():
 # def js(filepath):
 #     return static_file(filepath, root='/home/ec2-user/studybuddy/webapp/static')
 
-@bottle.get("/static/js-v3/<filepath:re:.*\.js>")
+@bottle.get("/fake-news-by-nowell/static/js-v3/<filepath:re:.*\.js>")
 def jsv3(filepath):
     return static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/js-v3")
 
-@bottle.get("/static/css-v3/<filepath:re:.*\.css>")
+@bottle.get("/fake-news-by-nowell/static/css-v3/<filepath:re:.*\.css>")
 def cssv3(filepath):
     return static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/css-v3")
 
-@bottle.get("/static/js/<filepath:re:.*\.js>")
+@bottle.get("/fake-news-by-nowell/static/js/<filepath:re:.*\.js>")
 def js(filepath):
     return static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/js")
 
-@bottle.get("/static/css/<filepath:re:.*\.css>")
+@bottle.get("/fake-news-by-nowell/static/css/<filepath:re:.*\.css>")
 def css(filepath):
     return static_file(filepath, root="/home/ec2-user/studybuddy/webapp/static/css")
 
