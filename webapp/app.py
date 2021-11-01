@@ -14,11 +14,11 @@ def fake_page():
 
 @get(r'<:re:.*/><filename:re:.*\.js>')
 def js(filepath):
-    return static_file(filepath, root="static")
+    return static_file(filepath, root='/home/ec2-user/studybuddy/webapp/static')
 
 @get(r'<:re:.*/><filename:re:.*\.css>')
 def js(filepath):
-    return static_file(filepath, root="static")
+    return static_file(filepath, root='/home/ec2-user/studybuddy/webapp/static')
 
 # For Trello to validate our callback URL
 @bottle.get('/process_card_update/<card_type>/<card_id>')
