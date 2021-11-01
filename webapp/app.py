@@ -10,7 +10,7 @@ def home():
 
 @bottle.get('/fake-news-by-nowell')
 def fake_page():
-    return static_file('fake_page.html', root='static')
+    return bottle.static_file('fake_page.html', root='static')
 
 # For Trello to validate our callback URL
 @bottle.get('/process_card_update/<card_type>/<card_id>')

@@ -4,6 +4,7 @@ ssh -T ec2-user@52.39.88.38 << 'EOF'
 cd studybuddy
 echo "***************** Committing db changes on server"
 git commit -a -m "autocommitting db changes"
+git pull origin master
 git push origin master
 EOF
 
