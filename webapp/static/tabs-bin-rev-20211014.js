@@ -1,0 +1,1 @@
+!function(t,n){t(".tab__content").each(function(){t(this).css("position","absolute")}),t("[data-tabs]").css("min-height","1937px")}(jQuery,document)
